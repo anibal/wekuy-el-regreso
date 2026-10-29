@@ -49,7 +49,7 @@ if config_env() == :prod do
 
   config :wekui, Wekui.Repo,
     database: database_path,
-    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "5")
+    pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
@@ -77,6 +77,16 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0}
     ],
     secret_key_base: secret_key_base
+
+  config :ash,
+    keyset_signing_secret:
+      :crypto.mac(
+        :hmac,
+        :sha256,
+        System.get_env("SECRET_KEY_BASE") ||
+          raise("environment variable SECRET_KEY_BASE is missing"),
+        "ash keyset signing"
+      )
 
   # ## SSL Support
   #

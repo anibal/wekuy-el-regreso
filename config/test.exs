@@ -1,5 +1,10 @@
 import Config
 
+config :ash,
+  policies: [show_policy_breakdowns?: true],
+  keyset_signing_secret: "NWJysrH97a8SYnPfU+ulTb8z2a03PiJU/Ch66luiZeY",
+  disable_async?: true
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used

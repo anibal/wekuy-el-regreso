@@ -1,5 +1,9 @@
 import Config
 
+config :ash,
+  policies: [show_policy_breakdowns?: true],
+  keyset_signing_secret: "zNPE7FrzMUeP693Bt2vV+ligDev8ZDB6YNlfLYLF+BY"
+
 # Configure your database
 config :wekui, Wekui.Repo,
   database: Path.expand("../wekui_dev.db", __DIR__),
