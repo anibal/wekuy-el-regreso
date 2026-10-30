@@ -1,4 +1,4 @@
-defmodule WekuiWeb.Telemetry do
+defmodule WekuyWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -53,23 +53,23 @@ defmodule WekuiWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("wekui.repo.query.total_time",
+      summary("wekuy.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("wekui.repo.query.decode_time",
+      summary("wekuy.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("wekui.repo.query.query_time",
+      summary("wekuy.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("wekui.repo.query.queue_time",
+      summary("wekuy.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("wekui.repo.query.idle_time",
+      summary("wekuy.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"
@@ -87,7 +87,7 @@ defmodule WekuiWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {WekuiWeb, :count_users, []}
+      # {WekuyWeb, :count_users, []}
     ]
   end
 end

@@ -1,4 +1,4 @@
-defmodule WekuiWeb.CoreComponents do
+defmodule WekuyWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
@@ -27,7 +27,7 @@ defmodule WekuiWeb.CoreComponents do
 
   """
   use Phoenix.Component
-  use Gettext, backend: WekuiWeb.Gettext
+  use Gettext, backend: WekuyWeb.Gettext
 
   alias Phoenix.LiveView.JS
 
@@ -490,9 +490,9 @@ defmodule WekuiWeb.CoreComponents do
     # with our gettext backend as first argument. Translations are
     # available in the errors.po file (as we use the "errors" domain).
     if count = opts[:count] do
-      Gettext.dngettext(WekuiWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(WekuyWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(WekuiWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(WekuyWeb.Gettext, "errors", msg, opts)
     end
   end
 

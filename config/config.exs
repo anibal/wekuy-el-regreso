@@ -6,7 +6,7 @@
 
 # General application configuration
 import Config
-config :wekui, Wekui.Repo, timeout: 15_000, busy_timeout: 16_000
+config :wekuy, Wekuy.Repo, timeout: 15_000, busy_timeout: 16_000
 
 # These enable behaviors that will become the default in the next major
 # version of Ash. Setting them now opts your application into the new
@@ -53,19 +53,19 @@ config :spark,
     "Ash.Domain": [section_order: [:resources, :policies, :authorization, :domain, :execution]]
   ]
 
-config :wekui,
-  ecto_repos: [Wekui.Repo],
+config :wekuy,
+  ecto_repos: [Wekuy.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configure the endpoint
-config :wekui, WekuiWeb.Endpoint,
+config :wekuy, WekuyWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: WekuiWeb.ErrorHTML, json: WekuiWeb.ErrorJSON],
+    formats: [html: WekuyWeb.ErrorHTML, json: WekuyWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Wekui.PubSub,
+  pubsub_server: Wekuy.PubSub,
   live_view: [signing_salt: "GEugNtdC"]
 
 # Configure LiveView
@@ -80,12 +80,12 @@ config :phoenix_live_view,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :wekui, Wekui.Mailer, adapter: Swoosh.Adapters.Local
+config :wekuy, Wekuy.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.25.4",
-  wekui: [
+  wekuy: [
     args:
       ~w(js/app.js --bundle --target=es2022 --outdir=../priv/static/assets/js --external:/fonts/* --external:/images/* --alias:@=.),
     cd: Path.expand("../assets", __DIR__),
@@ -95,7 +95,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "4.3.3",
-  wekui: [
+  wekuy: [
     args: ~w(
       --input=assets/css/app.css
       --output=priv/static/assets/css/app.css

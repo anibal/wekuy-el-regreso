@@ -5,8 +5,8 @@ config :ash,
   keyset_signing_secret: "zNPE7FrzMUeP693Bt2vV+ligDev8ZDB6YNlfLYLF+BY"
 
 # Configure your database
-config :wekui, Wekui.Repo,
-  database: Path.expand("../wekui_dev.db", __DIR__),
+config :wekuy, Wekuy.Repo,
+  database: Path.expand("../wekuy_dev.db", __DIR__),
   pool_size: 5,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true
@@ -17,7 +17,7 @@ config :wekui, Wekui.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :wekui, WekuiWeb.Endpoint,
+config :wekuy, WekuyWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}],
@@ -26,8 +26,8 @@ config :wekui, WekuiWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "dKHcEauaC8Q92seCK57FFC+nvDSxosWAFkIJ3FJmelv4hjS5U/pz1+v2iTJ3zODa",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:wekui, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:wekui, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:wekuy, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:wekuy, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -54,7 +54,7 @@ config :wekui, WekuiWeb.Endpoint,
 # different ports.
 
 # Enable dev routes for dashboard and mailbox
-config :wekui, dev_routes: true
+config :wekuy, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"

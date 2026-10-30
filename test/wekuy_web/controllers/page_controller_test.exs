@@ -1,5 +1,5 @@
-defmodule WekuiWeb.PageControllerTest do
-  use WekuiWeb.ConnCase
+defmodule WekuyWeb.PageControllerTest do
+  use WekuyWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, ~p"/")

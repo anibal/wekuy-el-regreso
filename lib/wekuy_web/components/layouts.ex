@@ -1,9 +1,9 @@
-defmodule WekuiWeb.Layouts do
+defmodule WekuyWeb.Layouts do
   @moduledoc """
   This module holds layouts and related functionality
   used by your application.
   """
-  use WekuiWeb, :html
+  use WekuyWeb, :html
 
   # Embed all files in layouts/* within this module.
   # The default root.html.heex file contains the HTML

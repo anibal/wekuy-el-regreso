@@ -1,6 +1,6 @@
-defmodule Wekui do
+defmodule Wekuy do
   @moduledoc """
-  Wekui keeps the contexts that define your domain
+  Wekuy keeps the contexts that define your domain
   and business logic.
 
   Contexts are also responsible for managing your data, regardless

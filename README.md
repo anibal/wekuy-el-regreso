@@ -1,4 +1,4 @@
-# Wekui
+# Wekuy
 
 To start your Phoenix server:
 

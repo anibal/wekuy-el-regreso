@@ -1,9 +1,9 @@
-defmodule Wekui.MixProject do
+defmodule Wekuy.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :wekui,
+      app: :wekuy,
       version: "0.1.0",
       elixir: "~> 1.17",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -21,7 +21,7 @@ defmodule Wekui.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Wekui.Application, []},
+      mod: {Wekuy.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -95,10 +95,10 @@ defmodule Wekui.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ash.setup --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["compile", "tailwind wekui", "esbuild wekui"],
+      "assets.build": ["compile", "tailwind wekuy", "esbuild wekuy"],
       "assets.deploy": [
-        "tailwind wekui --minify",
-        "esbuild wekui --minify",
+        "tailwind wekuy --minify",
+        "esbuild wekuy --minify",
         "phx.digest"
       ],
       precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"],

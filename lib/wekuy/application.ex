@@ -1,4 +1,4 @@
-defmodule Wekui.Application do
+defmodule Wekuy.Application do
   # See https://elixir.hexdocs.pm/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,21 +8,21 @@ defmodule Wekui.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      WekuiWeb.Telemetry,
-      Wekui.Repo,
+      WekuyWeb.Telemetry,
+      Wekuy.Repo,
       {Ecto.Migrator,
-       repos: Application.fetch_env!(:wekui, :ecto_repos), skip: skip_migrations?()},
-      {DNSCluster, query: Application.get_env(:wekui, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: Wekui.PubSub},
-      # Start a worker by calling: Wekui.Worker.start_link(arg)
-      # {Wekui.Worker, arg},
+       repos: Application.fetch_env!(:wekuy, :ecto_repos), skip: skip_migrations?()},
+      {DNSCluster, query: Application.get_env(:wekuy, :dns_cluster_query) || :ignore},
+      {Phoenix.PubSub, name: Wekuy.PubSub},
+      # Start a worker by calling: Wekuy.Worker.start_link(arg)
+      # {Wekuy.Worker, arg},
       # Start to serve requests, typically the last entry
-      WekuiWeb.Endpoint
+      WekuyWeb.Endpoint
     ]
 
     # See https://elixir.hexdocs.pm/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Wekui.Supervisor]
+    opts = [strategy: :one_for_one, name: Wekuy.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule Wekui.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    WekuiWeb.Endpoint.config_change(changed, removed)
+    WekuyWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 

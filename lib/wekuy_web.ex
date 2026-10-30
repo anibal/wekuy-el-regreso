@@ -1,12 +1,12 @@
-defmodule WekuiWeb do
+defmodule WekuyWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, components, channels, and so on.
 
   This can be used in your application as:
 
-      use WekuiWeb, :controller
-      use WekuiWeb, :html
+      use WekuyWeb, :controller
+      use WekuyWeb, :html
 
   The definitions below will be executed for every controller,
   component, etc, so keep them short and clean, focused
@@ -40,7 +40,7 @@ defmodule WekuiWeb do
     quote do
       use Phoenix.Controller, formats: [:html, :json]
 
-      use Gettext, backend: WekuiWeb.Gettext
+      use Gettext, backend: WekuyWeb.Gettext
 
       import Plug.Conn
 
@@ -80,16 +80,16 @@ defmodule WekuiWeb do
   defp html_helpers do
     quote do
       # Translation
-      use Gettext, backend: WekuiWeb.Gettext
+      use Gettext, backend: WekuyWeb.Gettext
 
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import WekuiWeb.CoreComponents
+      import WekuyWeb.CoreComponents
 
       # Common modules used in templates
       alias Phoenix.LiveView.JS
-      alias WekuiWeb.Layouts
+      alias WekuyWeb.Layouts
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())
@@ -99,9 +99,9 @@ defmodule WekuiWeb do
   def verified_routes do
     quote do
       use Phoenix.VerifiedRoutes,
-        endpoint: WekuiWeb.Endpoint,
-        router: WekuiWeb.Router,
-        statics: WekuiWeb.static_paths()
+        endpoint: WekuyWeb.Endpoint,
+        router: WekuyWeb.Router,
+        statics: WekuyWeb.static_paths()
     end
   end
 

@@ -1,10 +1,10 @@
-defmodule WekuiWeb.PageHTML do
+defmodule WekuyWeb.PageHTML do
   @moduledoc """
   This module contains pages rendered by PageController.
 
   See the `page_html` directory for all templates available.
   """
-  use WekuiWeb, :html
+  use WekuyWeb, :html
 
   embed_templates "page_html/*"
 end
